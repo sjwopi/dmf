@@ -1,0 +1,12 @@
+.categoriesList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 80px;
+  margin-bottom: 110px;
+
+  &__item {
+    width: calc(50% - 20px);
+  }
+}

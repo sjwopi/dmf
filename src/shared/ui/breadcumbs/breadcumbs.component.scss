@@ -1,0 +1,41 @@
+.breadcrumb {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 35px 0 20px 0;
+
+  &__item {
+    margin-right: 30px;
+    padding-right: 40px;
+    position: relative;
+    font: var(--font-xxs);
+
+    a {
+      font: var(--font-xxs);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 9px;
+      right: 0;
+      top: 0;
+      background: url(/assets/img/arrowBreadcumbs.svg) center/contain no-repeat;
+    }
+
+    &:last-child {
+      margin: 0;
+      padding: 0;
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .breadcrumb {
+    margin: 0 30px;
+  }
+}

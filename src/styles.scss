@@ -1,0 +1,127 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(./assets/fonts/fonts.scss);
+@import url(./assets/keyframes/keyframes.scss);
+
+body {
+  position: relative;
+
+  --desktopWidth: 1524px;
+  --font-family-main: "Carlito", sans-serif;
+  --font-family-sub: "Onest", sans-serif;
+
+  --font-size-xxs: 15px;
+  --font-line-xxs: 20px;
+  --font-xxs: 400 var(--font-size-xxs) / var(--font-line-s) var(--font-family-sub);
+
+  --font-size-xs: 18px;
+  --font-line-xs: 23px;
+  --font-xs: 400 var(--font-size-xs) / var(--font-line-xs) var(--font-family-sub);
+
+  --font-size-s: 20px;
+  --font-line-s: 24px;
+  --font-s: 400 var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+
+  --font-size-m: 24px;
+  --font-line-m: 31px;
+  --font-m: 500 var(--font-size-m) / var(--font-line-m) var(--font-family-sub);
+
+  --font-size-l: 30px;
+  --font-line-l: 36px;
+  --font-l: 700 var(--font-size-l) / var(--font-line-l) var(--font-family-sub);
+
+  --font-size-xl: 50px;
+  --font-line-xl: 60px;
+  --font-xl: 700 var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+
+  --font-size-xxl: 65px;
+  --font-line-xxl: 80px;
+  --font-xxl: 700 var(--font-size-xxl) / var(--font-line-xxl) var(--font-family-main);
+
+  --blue: #184380;
+  --dark-blue: #071D31;
+}
+
+* {
+  font: var(--font-xs);
+  color: black;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a, button, textarea, select, input {
+  text-decoration: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+a:hover, button:hover, textarea:hover, select:hover, input:hover {
+  cursor: pointer;
+}
+
+.title {
+  font: var(--font-xl);
+  text-transform: uppercase;
+
+  &.blue {
+    color: var(--blue)
+  }
+  &.main {
+    margin: 50px 0;
+  }
+}
+
+.content {
+  width: 100%;
+  max-width: var(--desktopWidth);
+  margin: 0 auto
+}
+
+
+@media screen and (max-width: 1600px) {
+  body {
+    --desktopWidth: 1100px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  body {
+    --desktopWidth: 900px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    --desktopWidth: 700px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  body {
+    --desktopWidth: calc(100% - 40px);
+  }
+}
+
+@media screen and (max-width: 520px) {
+  body {
+    --font-size-xxs: 13px;
+    --font-line-xxs: 17px;
+  
+    --font-size-xs: 14px;
+    --font-line-xs: 18px;
+
+    --font-size-s: 16px;
+    --font-line-s: 21px;
+
+    --font-size-m: 18px;
+    --font-line-m: 23px;
+
+    --font-size-l: 20px;
+    --font-line-l: 28px;
+
+    --font-size-xl: 36px;
+    --font-line-xl: 44px;
+
+    --font-size-xl: 36px;
+    --font-line-xl: 44px;
+  }
+}

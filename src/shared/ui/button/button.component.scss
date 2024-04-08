@@ -1,0 +1,38 @@
+.btn {
+  background-color: transparent;
+  border: 2px solid var(--dark-blue);
+  border-radius: 50px;
+  color: var(--dark-blue);
+  text-transform: uppercase;
+
+  &:hover {
+    font-weight: 800;
+  }
+}
+
+.invert {
+  border: 2px solid white;
+  color: white;
+  background-color: rgba(217, 217, 217, 0.1);
+}
+
+.xs {
+  font: var(--font-xs);
+  padding: 6px 24px;
+}
+
+.m {
+  font: var(--font-m);
+  padding: 15px 30px;
+  letter-spacing: .5px; 
+
+  &:hover {
+    letter-spacing: 0;
+  }
+}
+.w100 {
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
+  text-align: center;
+}

@@ -1,0 +1,74 @@
+<header class="header" [ngClass]="{'home': isHome}">
+  <a class="header__logo" href="/"><img src="/assets/img/logoBlack.svg" alt="логотип компании" class="header__logo"></a>
+
+  <div class="header__container">
+    <a href="/" class="header__nav-item">Главная</a>
+    <a href="" class="header__nav-item">О нас</a>
+    <a routerLink="categories" class="header__nav-item">Каталог</a>
+    <a routerLink="" class="header__nav-item">мебель на заказ</a>
+    <a href="" class="header__nav-item">Доставка и оплата</a>
+    <a href="" class="header__nav-item">Отзывы</a>
+    <a href="" class="header__nav-item">Контакты</a>
+  </div>
+
+  <div class="header__phones">
+    <a href="tel: +79087268881" class="header__nav-item">+7 (908) 726-88-81</a>
+    <a href="tel: +78313211314" class="header__nav-item">+7 (831) 321-13-14</a>
+  </div>
+
+  <div class="header__container right">
+    <img class="header__img" src="/assets/img/search.svg">
+    <img class="header__img" src="/assets/img/basket.svg">
+  </div>
+</header>
+
+
+<header class="header-mobile" [ngClass]="{'home': isHome, 'active': isOpenMobile}">
+  <a class="header-mobile__logo" href="/"><img src="/assets/img/logoBlack.svg" alt="логотип компании"></a>
+
+  <div class="header-mobile__right" [ngClass]="{'active': !isOpenMobile && !isOpenSearch}">
+    <button class="header-mobile__btn" (click)="changeOpenMobile()">
+      <img src="/assets/img/hamb.svg" alt="кнопка раскрытия меню">
+    </button>
+  </div>
+
+  <div class="header-mobile__right" [ngClass]="{'active': isOpenMobile && !isOpenSearch}">
+    <button class="header-mobile__btn" (click)="changeOpenSearch()">
+      <img src="/assets/img/search.svg" alt="поиск">
+    </button>
+    <a class="header-mobile__btn" routerLink="/basket">
+      <img src="/assets/img/basket.svg" alt="переход в корзину">
+    </a>
+    <button class="header-mobile__btn" (click)="changeOpenMobile()">
+      <img src="/assets/img/mainArrow.svg" alt="вернуться обратно">
+    </button>
+  </div>
+
+  <div class="header-mobile__right" [ngClass]="{'active': isOpenMobile && isOpenSearch}">
+    <input class="header-mobile__search" placeholder="Ваш запрос" (keyup)="search($event)">
+    <button class="header-mobile__btn">
+      <img src="/assets/img/search.svg" alt="кнопка раскрытия меню">
+    </button>
+    <button class="header-mobile__btn" (click)="changeOpenSearch()">
+      <img src="/assets/img/mainArrow.svg" alt="вернуться обратно">
+    </button>
+  </div>
+
+  <div class="header-mobile__content" [ngClass]="{'active': isOpenMobile}">
+    <div class="header-mobile__links" *ngIf="!isOpenSearch">
+      <a href="/" class="header-mobile__nav-item">Главная</a>
+      <a href="" class="header-mobile__nav-item">О нас</a>
+      <a routerLink="categories" class="header-mobile__nav-item">Каталог</a>
+      <a routerLink="" class="header-mobile__nav-item">мебель на заказ</a>
+      <a href="" class="header-mobile__nav-item">Доставка и оплата</a>
+      <a href="" class="header-mobile__nav-item">Отзывы</a>
+      <a href="" class="header-mobile__nav-item">Контакты</a>
+    </div>
+
+    <div class="header-mobile__links" *ngIf="!isOpenSearch">
+      <a href="tel: +79087268881" class="header-mobile__nav-item phone">+7 (908) 726-88-81</a>
+      <a href="tel: +78313211314" class="header-mobile__nav-item phone">+7 (831) 321-13-14</a>
+    </div>
+  </div>
+
+</header>

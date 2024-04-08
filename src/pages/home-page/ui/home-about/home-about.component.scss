@@ -1,0 +1,152 @@
+.aboutDesc {
+  margin: 0 0 70px 0;
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 170px
+  }
+
+  &__left {
+    width: 55%;
+  }
+
+  &__title {
+    padding: 80px 0 50px 0;
+  }
+
+  &__subtitle {
+    margin-bottom: 30px;
+    font: var(--font-m);
+    text-transform: uppercase;
+  }
+
+  &__text {
+    margin-bottom: 35px;
+  }
+
+  &__link {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+  }
+
+  &__left-imgs {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 20px;
+  }
+
+  &__left-img {
+    width: 60%;
+    height: fit-content;
+
+    &.small {
+      width: 40%;
+    }
+  }
+
+  &__right {
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  &__right-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  &__right-logo {
+    width: 136px;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.aboutPhotos {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  &__video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  &__item {
+    width: calc(25% - 15px);
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+}
+
+
+@media screen and (max-width: 1600px) {
+  .aboutDesc {
+    margin: 0;
+    gap: 30px;
+
+    &__container {
+      gap: 50px
+    }
+
+    &__right {
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .aboutDesc {
+    gap: 30px;
+    margin: 50px 0;
+
+    &__container {
+      flex-direction: column;
+      gap: 30px;
+
+      &.last {
+        flex-direction: column-reverse;
+      }
+    }
+
+    &__left {
+      width: 100%;
+    }
+
+    &__title {
+      padding: 0;
+      margin-bottom: 30px;
+    }
+    &__subtitle {
+      margin: 15px;
+    }
+    &__text {
+      margin: 15px;
+    }
+
+    &__right {
+      width: 100%;
+      flex-direction: row;
+    }
+
+    &__right-logo {
+      width: 64px;
+    }
+  }
+}

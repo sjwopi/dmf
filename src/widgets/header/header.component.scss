@@ -1,0 +1,245 @@
+.header {
+  padding: 25px calc((100% - var(--desktopWidth)) / 2);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  gap: 6%;
+
+  &.home {
+    position: absolute;
+    z-index: 5;
+    filter: invert(1);
+    top: 0;
+    left: 0;
+  }
+
+  &__logo img {
+    height: 90px;
+    width: 90px;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+
+    &.right {
+      gap: 45px;
+      margin: 0;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__nav-item {
+    color: #000;
+    text-transform: lowercase;
+    font-weight: 700;
+    letter-spacing: -1px;
+    /*     font-family: var(--font-family-main);
+    font-size: var(--font-size-xs);
+    line-height: var(--font-line-xs); */
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__phones {
+    display: flex;
+    min-width: fit-content;
+    flex-direction: column;
+  }
+
+  &__img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.header-mobile {
+  display: none;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30px 0 30px 30px;
+  transition: all .3s ease-in-out;
+
+  &.home {
+    position: absolute;
+    z-index: 5;
+    filter: invert(1);
+    top: 0;
+    left: 0;
+  }
+
+  &.active {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    filter: invert(1);
+  }
+
+  &__logo img {
+    width: 75px;
+    height: 75px;
+    aspect-ratio: 1/1;
+    transition: all .3s ease-in-out;
+    position: relative;
+    z-index: 10;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__right {
+    padding-right: 30px;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 35px;
+    overflow: hidden;
+
+    &.active {
+      display: flex;
+
+      .header-mobile__btn {
+        display: block;
+        animation: ShowOnDisplay .3s ease-in-out;
+      }
+
+      .header-mobile__search {
+        display: block;
+        animation: ShowOnDisplay .3s ease-in-out;
+      }
+    }
+  }
+
+  &__btn {
+    position: relative;
+    z-index: 2;
+    display: none;
+    width: 35px;
+    height: 35px;
+    aspect-ratio: 1/1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  &__search {
+    display: none;
+    position: relative;
+    z-index: 2;
+    background-color: transparent;
+    color: black;
+    padding: 5px 0;
+    border-bottom: 1px solid black;
+    width: 40vw;
+    min-width: 185px;
+    max-width: 350px;
+
+    &::placeholder {
+      color: black;
+    }
+  }
+
+  &__content {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--dark-blue);
+    filter: invert(1);
+
+    &.active {
+      display: flex;
+      flex-direction: column;
+      padding: 190px 30px 30px 30px;
+      gap: 100px;
+      animation: ShowOnDisplay .3s ease-in-out;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__nav-item {
+    color: white;
+    font-size: var(--font-size-xs);
+    line-height: var(--font-line-xs);
+    font-family: var(--font-family-main);
+    text-transform: uppercase;
+    transition: all .1s ease-in-out;
+
+    &.phone {
+      opacity: 0.6;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .header {
+    &__container {
+      row-gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .header-mobile {
+    display: flex;
+  }
+
+  .header {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header-mobile {
+    &__logo img {
+      width: 55px;
+      height: 55px;
+      aspect-ratio: 1/1;
+    }
+
+    &__right {
+      gap: 25px;
+    }
+
+    &__btn {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
