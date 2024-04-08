@@ -97,7 +97,7 @@ a:hover, button:hover, textarea:hover, select:hover, input:hover {
 
 @media screen and (max-width: 740px) {
   body {
-    --desktopWidth: calc(100% - 40px);
+    --desktopWidth: calc(100vw - 40px);
   }
 }
 

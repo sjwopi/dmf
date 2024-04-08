@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../widgets/header/header.component';
 import { FooterComponent } from '../widgets/footer/footer.component';
@@ -10,6 +10,13 @@ import { FooterComponent } from '../widgets/footer/footer.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'dmf';
+  ngOnInit(): void {
+    if (!window.matchMedia('(prefers-color-scheme: dark)')) {
+      document.querySelectorAll('link[rel="icon"]').forEach(item => {
+        item.setAttribute('href', 'assets/favicons/faviconBlack.ico')
+      })
+    }
+  }
 }

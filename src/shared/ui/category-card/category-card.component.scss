@@ -4,11 +4,27 @@
   flex-direction: column;
   gap: 20px;
   position: relative;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    opacity: 0.9;
+
+    .categoryCard__img {
+      transform: scale(1.01);
+    }
+  }
+
+  &__over {
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 2/1;
+  }
   
   &__img {
     width: 100%;
     object-fit: cover;
     aspect-ratio: 2/1;
+    transition: all .2s ease-in-out;
   }
 
   &__link {

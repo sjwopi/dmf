@@ -1,0 +1,8 @@
+<section class="content">
+  <div class="discountList" *ngIf="count">
+    <app-discounts-card class="discountList__item" *ngFor="let disc of discounts?.slice(0, count)" [discount]="disc"></app-discounts-card>
+  </div>
+  <div class="discountList" *ngIf="!count">
+    <app-discounts-card class="discountList__item" *ngFor="let disc of discounts" [discount]="disc"></app-discounts-card>
+  </div>
+</section>

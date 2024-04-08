@@ -1,1 +1,8 @@
-<p>discounts-card works!</p>
+<div class="discountCard">
+  <img class="discountCard__img" src="{{discount.imagePath}}">
+  <div class="discountCard__container">
+    <h6 class="discountCard__title">{{discount.name}}</h6>
+    <p class="discountCard__text">{{discount.description}}</p>
+    <a routerLink="discount/{{discount.id}}" class="discountCard__more">Подробнее</a>
+  </div>
+</div>

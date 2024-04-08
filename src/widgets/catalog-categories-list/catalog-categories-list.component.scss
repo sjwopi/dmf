@@ -4,9 +4,17 @@
   flex-wrap: wrap;
   column-gap: 20px;
   row-gap: 80px;
-  margin-bottom: 110px;
 
   &__item {
     width: calc(50% - 20px);
+  }
+}
+
+
+@media screen and (max-width: 780px) {
+  .categoriesList {
+    &__item {
+      width: 100%;
+    }
   }
 }

@@ -42,11 +42,11 @@
   }
 
   &__left-img {
-    width: 60%;
+    width: calc(60% - 10px);
     height: fit-content;
 
     &.small {
-      width: 40%;
+      width: calc(40% - 10px);
     }
   }
 
@@ -98,7 +98,7 @@
 
 @media screen and (max-width: 1600px) {
   .aboutDesc {
-    margin: 0;
+    margin: 0 0 50px 0;
     gap: 30px;
 
     &__container {
@@ -114,7 +114,6 @@
 @media screen and (max-width: 1000px) {
   .aboutDesc {
     gap: 30px;
-    margin: 50px 0;
 
     &__container {
       flex-direction: column;
@@ -133,11 +132,13 @@
       padding: 0;
       margin-bottom: 30px;
     }
+
     &__subtitle {
-      margin: 15px;
+      margin-bottom: 15px;
     }
+
     &__text {
-      margin: 15px;
+      margin-bottom: 15px;
     }
 
     &__right {
@@ -147,6 +148,12 @@
 
     &__right-logo {
       width: 64px;
+    }
+  }
+
+  .aboutPhotos {
+    &__container {
+      display: none;
     }
   }
 }
