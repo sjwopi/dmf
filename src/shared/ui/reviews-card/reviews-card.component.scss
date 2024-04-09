@@ -1,0 +1,39 @@
+.reviewsCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__header {
+    width: 100%;
+    padding-left: 75px;
+    position: relative;
+
+    &::before  {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 40px;
+      background: url(/assets/img/headReview.svg) center/contain no-repeat;
+    }
+  }
+
+  &__owner {
+    font: var(--font-l);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+  }
+  &__place {
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+  }
+  &__imgs {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  &__img {
+    cursor: pointer;
+  }
+}

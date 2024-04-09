@@ -1,0 +1,15 @@
+.reviewsList {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 80px;
+
+  &__item {
+    width: calc(25% - 60px);
+  }
+  &__skeleton {
+    width: calc(25% - 60px);
+    aspect-ratio: 1 / 1;
+  }
+}

@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DiscountsCardComponent } from '../../shared/ui/discounts-card/discounts-card.component';
 import { IDiscount } from '../../models/discount.model';
 import { NgFor, NgIf } from '@angular/common';
 import { SkeletonComponent } from '../../shared/ui/skeleton/skeleton.component';
-import { DiscountsService } from '../../services/discount.service';
+import { DiscountsService } from '../../services/discounts.service';
 
 @Component({
   selector: 'app-discount-list',
@@ -12,7 +12,7 @@ import { DiscountsService } from '../../services/discount.service';
   templateUrl: './discount-list.component.html',
   styleUrl: './discount-list.component.scss'
 })
-export class DiscountListComponent {
+export class DiscountListComponent implements OnInit {
   constructor(public discountsService: DiscountsService) { }
   @Input() count?: number;
   discounts: IDiscount[] = []

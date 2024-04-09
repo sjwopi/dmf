@@ -6,11 +6,12 @@ import { ICategory } from '../../models/category.model';
 import { DiscountListComponent } from '../../widgets/discount-list/discount-list.component';
 import { CatalogItemCardComponent } from '../../shared/ui/catalog-item-card/catalog-item-card.component';
 import { ReviewsListComponent } from '../../widgets/reviews-list/reviews-list.component';
+import { CustomLinkComponent } from '../../shared/ui/custom-link/custom-link.component';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [HomeSliderComponent, HomeAboutComponent, CatalogCategoriesListComponent, DiscountListComponent, ReviewsListComponent],
+  imports: [HomeSliderComponent, HomeAboutComponent, CatalogCategoriesListComponent, DiscountListComponent, ReviewsListComponent, CustomLinkComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })

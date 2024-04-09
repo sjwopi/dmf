@@ -14,5 +14,4 @@ import { SkeletonComponent } from '../skeleton/skeleton.component';
 })
 export class CategoryCardComponent {
   @Input() category!: ICategory;
-  @Input() isHome: boolean = false;
 }

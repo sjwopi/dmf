@@ -1,1 +1,19 @@
-<p>reviews-list works!</p>
+<section class="content" *ngIf="!isLoad">
+  <div class="reviewsList">
+    <app-reviews-card class="reviewsList__item" *ngFor="let review of reviews" [review]="review">
+    </app-reviews-card>
+  </div>
+</section>
+
+<section class="content" *ngIf="isLoad">
+  <div class="reviewsList">
+    <app-skeleton class="reviewsList__skeleton"></app-skeleton>
+    <app-skeleton class="reviewsList__skeleton"></app-skeleton>
+    <app-skeleton class="reviewsList__skeleton"></app-skeleton>
+    <app-skeleton class="reviewsList__skeleton"></app-skeleton>
+    <app-skeleton class="reviewsList__skeleton"></app-skeleton>
+    <app-skeleton class="reviewsList__skeleton"></app-skeleton>
+    <app-skeleton class="reviewsList__skeleton"></app-skeleton>
+    <app-skeleton class="reviewsList__skeleton"></app-skeleton>
+  </div>
+</section>

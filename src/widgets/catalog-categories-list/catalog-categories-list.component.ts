@@ -15,7 +15,7 @@ import { SkeletonComponent } from '../../shared/ui/skeleton/skeleton.component';
 })
 export class CatalogCategoriesListComponent {
   constructor(private router: Router, public categoriesService: CategoriesService) { }
-  isHome: boolean = false;
+
   categories: ICategory[] = []
   isLoad: boolean = false
 

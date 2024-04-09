@@ -1,9 +1,7 @@
 <div class="categoryCard">
-  <a *ngIf="isHome" routerLink="categories/{{category.id}}" class="categoryCard__link"></a>
-  <a *ngIf="!isHome" routerLink="{{category.id}}" class="categoryCard__link"></a>
+  <a routerLink="/categories/{{category.id}}" class="categoryCard__link"></a>
   <div class="categoryCard__over">
     <img class="categoryCard__img" src="{{category.imagePath}}" alt="{{category.name}}"> 
   </div>
-  <app-custom-link text="{{category.name}}" variant="ang" *ngIf="isHome" routerlink="categories/{{category.id}}"></app-custom-link>
-  <app-custom-link text="{{category.name}}" variant="ang" *ngIf="!isHome" routerlink="{{category.id}}"></app-custom-link>
+  <app-custom-link text="{{category.name}}" variant="ang" routerlink="/categories/{{category.id}}"></app-custom-link>
 </div>

@@ -1,1 +1,12 @@
-<p>reviews-card works!</p>
+<article class="reviewsCard">
+  <div class="reviewsCard__header">
+    <h6 class="reviewsCard__owner">{{review.owner}}</h6>
+    <p class="reviewsCard__place">{{review.place}}</p>
+  </div>
+  <p class="reviewsCard__text">{{review.text}}</p>
+  <app-custom-link variant="ang" weight="light" theme="blue" text="Подробнее"></app-custom-link>
+
+  <div class="reviewsCard__imgs">
+    <img *ngFor="let img of review.imagePath" class="reviewsCard__img" src="{{img}}">
+  </div>
+</article>
