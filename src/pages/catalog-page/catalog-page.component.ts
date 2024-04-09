@@ -12,7 +12,7 @@ import { ICategory } from '../../models/category.model';
 })
 export class CatalogPageComponent {
   names: string[] = ['Главная', 'Каталог']
-  categories: ICategory[] = [{
+/*   categories: ICategory[] = [{
     id: 1,
     name: 'для школ',
     imagePath: 'assets/img/category/category1.jpeg'
@@ -37,5 +37,5 @@ export class CatalogPageComponent {
     name: 'мебель на заказ',
     imagePath: 'assets/img/category/category6.jpg'
   },
-  ]
+  ] */
 }

@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ICategory } from '../../models/category.model';
 import { BreadcumbsComponent } from '../../shared/ui/breadcumbs/breadcumbs.component';
 import { CatalogCategoriesListComponent } from '../../widgets/catalog-categories-list/catalog-categories-list.component';
+import { NavigationEnd, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-categories-page',
@@ -10,32 +12,28 @@ import { CatalogCategoriesListComponent } from '../../widgets/catalog-categories
   templateUrl: './categories-page.component.html',
   styleUrl: './categories-page.component.scss'
 })
-export class CategoriesPageComponent {
+export class CategoriesPageComponent implements OnInit{
+  constructor(private router: Router) { }
+
   names: string[] = ['Главная', 'Каталог']
-  categories: ICategory[] = [{
-    id: 1,
-    name: 'для школ',
-    imagePath: 'assets/img/category/category1.jpeg'
-  }, {
-    id: 2,
-    name: 'для детских садов',
-    imagePath: 'assets/img/category/category2.jpg'
-  }, {
-    id: 3,
-    name: 'для дома',
-    imagePath: 'assets/img/category/category3.jpg'
-  }, {
-    id: 4,
-    name: 'для офисов и бизнеса',
-    imagePath: 'assets/img/category/category4.jpeg'
-  }, {
-    id: 5,
-    name: 'Белорусская мебель «ПИНСКДРЕВ»',
-    imagePath: 'assets/img/category/category5.jpg'
-  }, {
-    id: 6,
-    name: 'мебель на заказ',
-    imagePath: 'assets/img/category/category6.jpg'
-  },
-  ]
+
+
+  /* changeUrl() {
+    const id = this.router.url.split('categories/')[1]
+    if (id) {
+      this.names.push(dataAll.filter(cat => cat.id?.toString() == id)[0].name)
+      this.names = [...this.names]
+      console.log(this.names)
+    } else {
+      this.names = ['Главная', 'Каталог']
+    }
+  } */
+
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        //this.changeUrl()
+      }
+    });
+  }
 }

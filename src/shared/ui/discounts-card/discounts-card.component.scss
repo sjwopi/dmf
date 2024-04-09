@@ -23,6 +23,13 @@
     text-transform: uppercase;
   }
 
+  &__text {
+    &.skeleton {
+      height: var(--font-line-xs);
+      width: 100%;
+    }
+  }
+
   &__more {
     color: var(--blue);
     text-decoration: underline;

@@ -43,7 +43,9 @@
 
   &__left-img {
     width: calc(60% - 10px);
-    height: fit-content;
+    height: fit-content; 
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
 
     &.small {
       width: calc(40% - 10px);

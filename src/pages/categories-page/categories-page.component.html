@@ -1,7 +1,7 @@
 <section class="content">
   <app-breadcumbs [names]="names"></app-breadcumbs>
 
-  <h1 class="title main">Каталог</h1>
+  <h1 class="title main">{{names[names.length - 1]}}</h1>
 
-  <app-catalog-categories-list></app-catalog-categories-list>
+  <app-catalog-categories-list class="categoriesPage"></app-catalog-categories-list>
 </section>

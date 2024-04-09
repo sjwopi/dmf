@@ -1,6 +1,7 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { ICategory } from '../../../models/category.model';
 
 interface IBreadcumb {
   name: string;
@@ -21,7 +22,6 @@ export class BreadcumbsComponent  implements OnInit {
   breadcrumbs: IBreadcumb[] = []
 
   ngOnInit(): void {
-    console.log(this.names)
     this.router.url.split('/').forEach((item, i) => {
       this.breadcrumbs.push({ name: this.names[i], link: item })
     })

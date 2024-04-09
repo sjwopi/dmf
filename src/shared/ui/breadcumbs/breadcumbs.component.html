@@ -4,10 +4,10 @@
       <a routerLink="{{breadcrumbs[0].link}}">{{breadcrumbs[0].name}}</a>
     </li>
 
-    <li *ngFor="let item of breadcrumbs.slice(1, this.breadcrumbs.length-1)" class="breadcrumb__item" aria-current="page">
+    <li *ngFor="let item of breadcrumbs.slice(1, breadcrumbs.length-1)" class="breadcrumb__item" aria-current="page">
       <a href="{{item.link}}">{{item.name}}</a>
     </li>
 
-    <li class="breadcrumb__item">{{breadcrumbs[this.breadcrumbs.length-1].name}}</li>
+    <li class="breadcrumb__item">{{breadcrumbs[breadcrumbs.length-1].name}}</li>
   </ul>
 </nav>

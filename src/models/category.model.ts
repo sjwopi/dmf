@@ -1,7 +1,7 @@
 export interface ICategory {
-  id?: number | null;
-  name: string;
-  imagePath?: string | null;
-  children?: ICategory[] | null;
-  parentId?: number | null;
+  id?: number
+  name: string
+  imagePath: string | null
+  children: ICategory[]
+  parentId: number | null
 }

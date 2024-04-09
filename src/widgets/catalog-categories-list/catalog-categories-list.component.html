@@ -1,5 +1,17 @@
 <section class="content">
-  <div class="categoriesList">
-    <app-category-card class="categoriesList__item" *ngFor="let cat of categories" [category]="cat"></app-category-card>
+  <div class="categoriesList" *ngIf="!isLoad">
+    <app-category-card class="categoriesList__item"
+      *ngFor="let cat of categories" 
+      [category]="cat" [isHome]="isHome"
+    ></app-category-card>
+  </div>
+
+  <div class="categoriesList" *ngIf="isLoad">
+    <app-skeleton class="categoriesList__skeleton"></app-skeleton>
+    <app-skeleton class="categoriesList__skeleton"></app-skeleton>
+    <app-skeleton class="categoriesList__skeleton"></app-skeleton>
+    <app-skeleton class="categoriesList__skeleton"></app-skeleton>
+    <app-skeleton class="categoriesList__skeleton"></app-skeleton>
+    <app-skeleton class="categoriesList__skeleton"></app-skeleton>
   </div>
 </section>

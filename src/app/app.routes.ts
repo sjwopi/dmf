@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 import { HomePageComponent } from '../pages/home-page/home-page.component';
 import { CatalogPageComponent } from '../pages/catalog-page/catalog-page.component';
 import { CategoriesPageComponent } from '../pages/categories-page/categories-page.component';
+import { CatalogItemPageComponent } from '../pages/catalog-item-page/catalog-item-page.component';
+import { NotFoundPageComponent } from '../pages/not-found-page/not-found-page.component';
 
 export const routes: Routes = [
   {
@@ -32,24 +34,27 @@ export const routes: Routes = [
     path: 'soglasie',
     component: PolicyComponent
   },*/
+
   {
     path: 'categories',
-    component: CategoriesPageComponent
-  },
-  {
-    path: 'categories/:id',
-    component: CategoriesPageComponent
+    component: CategoriesPageComponent,
+
+    children: [{
+      path: '**',
+      component: CategoriesPageComponent,
+    }]
   },
   {
     path: 'catalog',
-    component: CatalogPageComponent
-  },
-  {
-    path: 'catalog/:id',
-    component: CatalogPageComponent
+    component: CatalogPageComponent,
+
+    children: [{
+      path: ':id',
+      component: CatalogItemPageComponent
+    }]
   },
   {
     path: '**',
-    component: HomePageComponent
+    component: NotFoundPageComponent
   }
 ];

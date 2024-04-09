@@ -1,4 +1,6 @@
 .link {
+  position: relative;
+  z-index: 3;
   font-family: var(--font-family-main);
   font-weight: 700;
   transition: all .2s ease-in-out;
@@ -31,6 +33,10 @@
 .ang {
   padding-right: 30px;
   position: relative;
+
+  &:hover {
+    text-decoration: underline;
+  }
 
   &::after {
     content: '';

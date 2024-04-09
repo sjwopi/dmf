@@ -6,7 +6,12 @@
   row-gap: 80px;
 
   &__item {
-    width: calc(50% - 20px);
+    width: calc(50% - 10px);
+  }
+
+  &__skeleton {
+    width: calc(50% - 10px);
+    aspect-ratio: 2 / 1;
   }
 }
 
@@ -15,6 +20,11 @@
   .categoriesList {
     &__item {
       width: 100%;
+    }
+
+    &__skeleton {
+      width: 100%;
+      aspect-ratio: 2 / 1;
     }
   }
 }

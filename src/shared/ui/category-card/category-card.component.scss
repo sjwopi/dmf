@@ -19,6 +19,11 @@
     width: 100%;
     aspect-ratio: 2/1;
   }
+
+  &__more {
+    width: 70%;
+    height: var(--font-line-s);
+  }
   
   &__img {
     width: 100%;
@@ -35,5 +40,6 @@
     right: 0;
     bottom: 0;
     cursor: pointer;
+    z-index: 2;
   }
 }
