@@ -16,7 +16,7 @@ interface IBreadcumb {
   styleUrl: './breadcumbs.component.scss'
 })
 
-export class BreadcumbsComponent  implements OnInit {
+export class BreadcumbsComponent implements OnInit {
   constructor(private router: Router) { }
   @Input() names: string[] = []
   breadcrumbs: IBreadcumb[] = []
@@ -24,6 +24,15 @@ export class BreadcumbsComponent  implements OnInit {
   ngOnInit(): void {
     this.router.url.split('/').forEach((item, i) => {
       this.breadcrumbs.push({ name: this.names[i], link: item })
+    })
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        console.log(this.names)
+        this.breadcrumbs = []
+        this.router.url.split('/').forEach((item, i) => {
+          this.breadcrumbs.push({ name: this.names[i], link: item })
+        })
+      }
     })
   }
 }

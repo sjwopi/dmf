@@ -1,38 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { ICategory } from '../../models/category.model';
 import { BreadcumbsComponent } from '../../shared/ui/breadcumbs/breadcumbs.component';
-import { CatalogCategoriesListComponent } from '../../widgets/catalog-categories-list/catalog-categories-list.component';
 import { NavigationEnd, Router } from '@angular/router';
+import { CategoriesListComponent } from '../../widgets/categories-list/categories-list.component';
+import { CategoriesService } from '../../services/categories.service';
 
 
 @Component({
   selector: 'app-categories-page',
   standalone: true,
-  imports: [BreadcumbsComponent, CatalogCategoriesListComponent],
+  imports: [BreadcumbsComponent, CategoriesListComponent],
   templateUrl: './categories-page.component.html',
   styleUrl: './categories-page.component.scss'
 })
-export class CategoriesPageComponent implements OnInit{
-  constructor(private router: Router) { }
-
+export class CategoriesPageComponent implements OnInit {
+  constructor(private router: Router, public categoriesService: CategoriesService) { }
+  baseNames: string[] = ['Главная', 'Каталог']
   names: string[] = ['Главная', 'Каталог']
 
-
-  /* changeUrl() {
-    const id = this.router.url.split('categories/')[1]
+  changeUrl() {
+    const urls = this.router.url.split('categories/')[1].split('/')
+    const id = urls[urls.length - 1]
     if (id) {
-      this.names.push(dataAll.filter(cat => cat.id?.toString() == id)[0].name)
+      const res: string[] = [];
+      let item: ICategory = this.categoriesService.getById(parseInt(id))
+      res.push(item.name)
+
+      while(item.parentId) {
+        let parent = this.categoriesService.getById(item.parentId)
+        res.push(parent.name)
+        item = parent
+      }
+      this.names = [...this.baseNames]
+      this.names.push(...res.reverse())
       this.names = [...this.names]
-      console.log(this.names)
     } else {
-      this.names = ['Главная', 'Каталог']
+      this.names = this.baseNames
     }
-  } */
+  }
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        //this.changeUrl()
+        this.changeUrl()
       }
     });
   }

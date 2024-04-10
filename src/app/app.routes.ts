@@ -4,6 +4,7 @@ import { CatalogPageComponent } from '../pages/catalog-page/catalog-page.compone
 import { CategoriesPageComponent } from '../pages/categories-page/categories-page.component';
 import { CatalogItemPageComponent } from '../pages/catalog-item-page/catalog-item-page.component';
 import { NotFoundPageComponent } from '../pages/not-found-page/not-found-page.component';
+import { ReviewsPageComponent } from '../pages/reviews-page/reviews-page.component';
 
 export const routes: Routes = [
   {
@@ -41,7 +42,7 @@ export const routes: Routes = [
 
     children: [{
       path: '**',
-      component: CategoriesPageComponent,
+      component: CategoriesPageComponent
     }]
   },
   {
@@ -52,6 +53,10 @@ export const routes: Routes = [
       path: ':id',
       component: CatalogItemPageComponent
     }]
+  },
+  {
+    path: 'reviews',
+    component: ReviewsPageComponent
   },
   {
     path: '**',

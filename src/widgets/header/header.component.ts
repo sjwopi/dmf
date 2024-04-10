@@ -6,7 +6,7 @@ import { ButtonComponent } from '../../shared/ui/button/button.component';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NgClass, NgIf, RouterLink, ButtonComponent],
+  imports: [NgClass, ButtonComponent, RouterLink, NgIf],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
@@ -29,7 +29,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        if(event.url == '/') this.isHome = true;
+        if (event.url == '/') this.isHome = true;
+        else if (event.url.split('/')[1][0] == "#") this.isHome = true;
         else this.isHome = false;
       }
     });

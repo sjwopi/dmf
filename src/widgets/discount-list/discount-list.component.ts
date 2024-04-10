@@ -14,7 +14,7 @@ import { DiscountsService } from '../../services/discounts.service';
 })
 export class DiscountListComponent implements OnInit {
   constructor(public discountsService: DiscountsService) { }
-  @Input() count?: number;
+  @Input() count?: '' | 'small' = '';
   discounts: IDiscount[] = []
   isLoad: boolean = false
 

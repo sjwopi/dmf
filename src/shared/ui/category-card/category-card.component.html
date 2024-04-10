@@ -1,7 +1,9 @@
 <div class="categoryCard">
-  <a routerLink="/categories/{{category.id}}" class="categoryCard__link"></a>
+  <a *ngIf="!category.children.length" routerLink="/catalog/{{category.id}}" class="categoryCard__link"></a>
+  <a *ngIf="category.children.length" routerLink="/categories/{{url}}" class="categoryCard__link"></a>
   <div class="categoryCard__over">
     <img class="categoryCard__img" src="{{category.imagePath}}" alt="{{category.name}}"> 
   </div>
-  <app-custom-link text="{{category.name}}" variant="ang" routerlink="/categories/{{category.id}}"></app-custom-link>
+  <app-custom-link *ngIf="!category.children.length" text="{{category.name}}" variant="ang" routerlink="/catalog/{{category.id}}"></app-custom-link>
+  <app-custom-link *ngIf="category.children.length" text="{{category.name}}" variant="ang" routerlink="/categories/{{url}}"></app-custom-link>
 </div>

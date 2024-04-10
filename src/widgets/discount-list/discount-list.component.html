@@ -1,17 +1,24 @@
 <section class="content" *ngIf="!isLoad">
-  <div class="discountList" *ngIf="count">
-    <app-discounts-card class="discountList__item" *ngFor="let disccount of discounts?.slice(0, count)" [discount]="disccount">
+  <div class="discountList" *ngIf="count == 'small'">
+    <app-discounts-card class="discountList__item" *ngFor="let disccount of discounts?.slice(0, 2)" [discount]="disccount">
     </app-discounts-card>
   </div>
 
-  <div class="discountList" *ngIf="!count">
+  <div class="discountList" *ngIf="count != 'small'">
     <app-discounts-card class="discountList__item" *ngFor="let disccount of discounts" [discount]="disccount">
     </app-discounts-card>
   </div>
 </section>
 
 <section class="content" *ngIf="isLoad">
-  <div class="discountList">
+  <div class="discountList" *ngIf="count == 'small'">
+    <app-skeleton class="discountList__skeleton"></app-skeleton>
+    <app-skeleton class="discountList__skeleton"></app-skeleton>
+  </div>
+
+  <div class="discountList" *ngIf="count != 'small'">
+    <app-skeleton class="discountList__skeleton"></app-skeleton>
+    <app-skeleton class="discountList__skeleton"></app-skeleton>
     <app-skeleton class="discountList__skeleton"></app-skeleton>
     <app-skeleton class="discountList__skeleton"></app-skeleton>
     <app-skeleton class="discountList__skeleton"></app-skeleton>

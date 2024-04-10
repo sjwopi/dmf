@@ -81,6 +81,32 @@
       text-decoration: none;
     }
   }
+  &__sitenn {
+    margin: 0 auto;
+    width: fit-content;
+    position: relative;
+    z-index: 3;
+    font-family: var(--font-family-main);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    padding-right: 30px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 30px;
+      height: 21px;
+      background: url(/assets/img/arrow-link-black.svg) center/14px no-repeat;
+      filter: invert(1);
+    }
+  }
 }
 
 @media screen and (max-width: 1600px) {

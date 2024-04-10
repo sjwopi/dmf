@@ -2,21 +2,21 @@
 
 <div class="content">
 
-  <app-home-about class="homeBlock"></app-home-about>
+  <app-home-about id="homeAbout" class="homeBlock"></app-home-about>
 
   <h2 class="title homeBlockTitle">Каталог</h2>
 
-  <app-catalog-categories-list class="homeBlockSmall"></app-catalog-categories-list>
+  <app-categories-list class="homeBlockSmall"></app-categories-list>
 
   <h2 class="title homeBlockTitle">Акции и скидки</h2>
   
-  <app-discount-list class="homeBlockSmall" [count]="2"></app-discount-list>
+  <app-discount-list class="homeBlockSmall" count="small"></app-discount-list>
 
   <div class="homeReviews">
     <h2 class="title blue homeBlockTitle">Отзывы</h2>
     <a routerLink="/reviews" class="homeReviews__btn"></a>
   </div>
 
-  <app-reviews-list class="homeBlockSmall"></app-reviews-list>
+  <app-reviews-list class="homeBlockSmall" count="small"></app-reviews-list>
 
 </div>

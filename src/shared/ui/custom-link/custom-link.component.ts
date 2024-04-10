@@ -12,7 +12,7 @@ export class CustomLinkComponent {
   @Input() text: string = '';
   @Input() routerlink: string = '';
   @Input() size: 'xs' | 's' | 'm' = 's';
-  @Input() weight: '' | 'light' = '';
-  @Input() theme: '' | 'blue' | 'white' = '';
+  @Input() weight: '' | 'light' | 'bold' = '';
+  @Input() theme: '' | 'blue'  = '';
   @Input() variant: '' | 'ang' | 'hor' = '';
 }
