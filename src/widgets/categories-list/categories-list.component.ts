@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { CategoriesService } from '../../services/categories.service';
 import { ICategory } from '../../models/category.model';
 import { SkeletonComponent } from '../../shared/ui/skeleton/skeleton.component';
@@ -18,17 +18,10 @@ export class CategoriesListComponent implements OnInit {
   categories: ICategory[] = []
   isLoad: boolean = false
 
-  changeUrl() {
-    if(this.router.url == '/') {
-      this.isLoad = true;
-      setTimeout(() => {
-        this.categories = this.categoriesService.getAll()
-        this.isLoad = false
-      }, 500)
-      return
-    }
+  changeUrl(event?: any) {
+    if (event.url.split('/')[1] !== 'categories') return
 
-    const urls = this.router.url.split('categories')[1]?.split('/')
+    const urls = event.url.split('categories')[1]?.split('/')
     const id = urls[urls.length - 1]
     if (id) {
       this.isLoad = true;
@@ -46,10 +39,10 @@ export class CategoriesListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.changeUrl()
+    this.changeUrl(this.router)
     this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.changeUrl()
+      if (event instanceof NavigationStart) {
+        this.changeUrl(event)
       }
     });
   }

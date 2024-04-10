@@ -1,6 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router, RouterLink } from '@angular/router';
 import { ICategory } from '../../../models/category.model';
 
 interface IBreadcumb {
@@ -21,17 +21,25 @@ export class BreadcumbsComponent implements OnInit {
   @Input() names: string[] = []
   breadcrumbs: IBreadcumb[] = []
 
+  changeUrl() {
+    setTimeout(() => {
+      console.log(this.names)
+      this.breadcrumbs = []
+      const acc: string[] = []
+      this.router.url.split('/').forEach((item, i) => {
+        acc.push(item)
+        console.log(acc)
+        this.breadcrumbs.push({ name: this.names[i], link: acc.join('/') })
+      })
+    }, 100)
+  }
+
   ngOnInit(): void {
-    this.router.url.split('/').forEach((item, i) => {
-      this.breadcrumbs.push({ name: this.names[i], link: item })
-    })
+    this.changeUrl()
+
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        console.log(this.names)
-        this.breadcrumbs = []
-        this.router.url.split('/').forEach((item, i) => {
-          this.breadcrumbs.push({ name: this.names[i], link: item })
-        })
+        this.changeUrl()
       }
     })
   }
