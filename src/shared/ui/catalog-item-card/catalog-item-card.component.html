@@ -10,7 +10,12 @@
     <h3 class="catalogItem__price">{{product.price}} ₽</h3>
   </div>
 
-  <button class="catalogItem__btn">В корзину</button>
+  <button class="catalogItem__btn" *ngIf="!inBasket" (click)="changeInBasket()">В корзину</button>
+  <div class="catalogItem__basket" *ngIf="inBasket">
+    <button class="catalogItem__btnchange minus" (click)="decrease()"></button>
+    <button class="catalogItem__btn">{{count}}</button>
+    <button class="catalogItem__btnchange plus" (click)="increase()"></button>
+  </div>
 </article>
 
 <article class="catalogItemSmall" *ngIf="isSmall">
@@ -21,6 +26,11 @@
 
   <div class="catalogItemSmall__container">
     <h3 class="catalogItemSmall__price">{{product.price}} ₽</h3>
-    <button class="catalogItemSmall__btn">В корзину</button>
+    <button class="catalogItemSmall__btn" *ngIf="!inBasket" (click)="changeInBasket()">В корзину</button>
+    <div class="catalogItemSmall__basket" *ngIf="inBasket">
+      <button class="catalogItemSmall__btnchange minus" (click)="decrease()"></button>
+      <button class="catalogItemSmall__btn">{{count}}</button>
+      <button class="catalogItemSmall__btnchange plus" (click)="increase()"></button>
+    </div>
   </div>
 </article>

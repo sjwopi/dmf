@@ -1,0 +1,62 @@
+<section class="content">
+  <app-breadcumbs [names]="names"></app-breadcumbs>
+
+  <h2 class="title main">Корзина</h2>
+
+  <div class="basketPage">
+    <app-catalog-item-card [product]="product" [inBasket]="true"></app-catalog-item-card>
+
+    <form [formGroup]="basketForm" class="form">
+      <h2 class="form__title"><span>1 </span>контактны данные</h2>
+      <div class="form__container">
+        <div class="form__left"></div>
+        <div class="form__right">
+          <input formControlName="name" class="form__input" placeholder="Имя">
+          <input formControlName="phone" class="form__input" placeholder="Телефон">
+          <input formControlName="email" class="form__input" placeholder="Email">
+        </div>
+      </div>
+
+      <h2 class="form__title"><span>2 </span>доставка</h2>
+      <div class="form__container">
+        <div class="form__left">
+          <p>Внимание! Доставка до подъезда.</p>
+          <p>Стоимость доставки для Нижегородской области:Дзержинск<br>
+            — бесплатно<br>
+            Нижний Новгород<br>
+            — 1000р<br>
+            В радиусе 30 км от Дзержинска (за чертой города до 30км) — 1200р<br>
+            В радиусе 40-50 км от Дзержинска — 1700</p>
+          <p>Стоимость за пределами Нижегородской области рассчитывается индивидуально.</p>
+        </div>
+        <div class="form__right">
+          <input formControlName="name" class="form__input" placeholder="Горов">
+          <input formControlName="phone" class="form__input" placeholder="Улица">
+          <input formControlName="email" class="form__input" placeholder="Дом">
+        </div>
+      </div>
+
+      <h2 class="form__title"><span>3 </span>способы оплаты</h2>
+      <div class="form__container">
+        <div class="form__left"></div>
+        <div class="form__right">
+          <div class="form__checkbox">
+            <input id="sidebar-inp1" type="checkbox">
+            <label for="sidebar-inp1"><span>Оплата банковской картой при получении</span></label>
+          </div>
+
+          <div class="form__checkbox">
+            <input id="sidebar-inp2" type="checkbox">
+            <label for="sidebar-inp2"><span>Оплатить онлайн</span></label>
+          </div>
+
+          <div class="form__checkbox">
+            <input id="sidebar-inp3" type="checkbox">
+            <label for="sidebar-inp3"><span>Оплатить по счету</span></label>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</section>

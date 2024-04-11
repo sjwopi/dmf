@@ -1,0 +1,14 @@
+<section class="content">
+  <app-breadcumbs [names]="names"></app-breadcumbs>
+
+  <h1 class="title main blue">{{discount.name}}</h1>
+
+  <div class="discountItemPage">
+    <img class="discountItemPage__img" src="{{discount.imagePath}}" alt="">
+
+    <div class="discountItemPage__description">
+      <p *ngFor="let p of discount.description.split('\n')">{{p}}</p>
+      <app-button class="discountItemPage__btn" routerlink="/catalog" size="m" text="Сделать заказ"></app-button>
+    </div>
+  </div>
+</section>

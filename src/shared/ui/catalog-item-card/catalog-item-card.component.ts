@@ -13,6 +13,23 @@ import { ButtonComponent } from '../button/button.component';
 export class CatalogItemCardComponent implements OnInit {
   @Input() product!: IProduct;
   @Input() isSmall: boolean = false;
+  @Input() inBasket: boolean = false;
+  count: number = 1
+
+  changeInBasket() {
+    this.inBasket = !this.inBasket
+  }
+
+  increase() {
+    this.count += 1
+  }
+  decrease() {
+    if (this.count > 1) {
+      this.count -= 1
+    } else if (this.count == 1) {
+      this.inBasket = !this.inBasket
+    }
+  }
 
   ngOnInit(): void {
     console.log(this.product)

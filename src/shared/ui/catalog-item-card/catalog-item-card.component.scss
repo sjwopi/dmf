@@ -41,6 +41,28 @@
       text-stroke: 1px var(--blue);
     }
   }
+
+  &__basket {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 200px;
+  }
+
+  &__btnchange {
+    min-width: fit-content;
+    &.minus {
+      min-width: 20px;
+      height: 30px;
+      background: url(/assets/img/minus.svg) center/contain no-repeat;
+    }
+    &.plus {
+      min-width: 20px;
+      height: 30px;
+      background: url(/assets/img/plus.svg) center/contain no-repeat;
+    }
+  }
 }
 
 .catalogItemSmall {
@@ -51,10 +73,12 @@
   &__img {
     width: 100%;
   }
+
   &__title {
     width: 100%;
     text-transform: uppercase;
   }
+
   &__container {
     display: flex;
     flex-direction: row;
@@ -79,6 +103,33 @@
     &:hover {
       -webkit-text-stroke: 1px var(--blue);
       text-stroke: 1px var(--blue);
+    }
+  }
+
+  &__basket {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 150px;
+    margin-right: 13px;
+    
+    .catalogItemSmall__btn {
+      margin: 0;
+    }
+  }
+
+  &__btnchange {
+    min-width: fit-content;
+    &.minus {
+      min-width: 20px;
+      height: 20px;
+      background: url(/assets/img/minus.svg) center/contain no-repeat;
+    }
+    &.plus {
+      min-width: 20px;
+      height: 20px;
+      background: url(/assets/img/plus.svg) center/contain no-repeat;
     }
   }
 }

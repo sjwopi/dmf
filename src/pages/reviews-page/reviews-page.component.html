@@ -1,3 +1,10 @@
-<section class="content">
+<section class="content reviewsPage">
+  <app-breadcumbs [names]="names"></app-breadcumbs>
+
+  <div class="reviewsPage__container">
+    <h2 class="title blue main">Отзывы</h2>
+    <a routerLink="/reviews/add" class="reviewsPage__btn"></a>
+  </div>
+
   <app-reviews-list></app-reviews-list>
 </section>
