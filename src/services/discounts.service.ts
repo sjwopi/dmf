@@ -41,7 +41,7 @@ export class DiscountsService {
   entityUrl: string = 'api/admin/discounts'
   fullUrl: string = `${this.baseUrl}${this.entityUrl}`;
   
-  headers: HttpHeaders = new HttpHeaders({ 'Authorization': 'asff' })
+  headers: {headers: HttpHeaders} = {headers: new HttpHeaders({ 'Authorization': 'asff' })}
   discounts: IDiscount[] = [];
 
   private _collectForm(item: IDiscount, file?: File): FormData {
@@ -74,7 +74,7 @@ export class DiscountsService {
 
   create(item: IDiscount, file?: File): Observable<IDiscount> {
     let formData = this._collectForm(item, file);
-    return this.http.post<IDiscount>(`${this.fullUrl}`, formData, { headers: this.headers }).pipe(
+    return this.http.post<IDiscount>(`${this.fullUrl}`, formData, this.headers).pipe(
       delay(300),
       retry(2)
     )
@@ -82,14 +82,14 @@ export class DiscountsService {
 
   edit(item: IDiscount, file?: File): Observable<IDiscount> {
     let formData = this._collectForm(item, file);
-    return this.http.patch<IDiscount>(`${this.fullUrl}`, formData, { headers: this.headers }).pipe(
+    return this.http.patch<IDiscount>(`${this.fullUrl}`, formData, this.headers).pipe(
       delay(300),
       retry(2)
     )
   }
 
   delete(id: number) {
-    return this.http.delete<IDiscount>(`${this.fullUrl}?id=${id}`, { headers: this.headers }).pipe(
+    return this.http.delete<IDiscount>(`${this.fullUrl}?id=${id}`, this.headers).pipe(
       delay(300),
       retry(2)
     )

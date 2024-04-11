@@ -1,14 +1,15 @@
-.categoriesList {
+.catalogList {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   column-gap: 20px;
   row-gap: 80px;
+  margin-bottom: 110px;
 
   &__item {
     width: 100%;
 
-    .small {
+    &.small {
       width: calc(25% - 15px);
     }
   }

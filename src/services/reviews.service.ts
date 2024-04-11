@@ -60,7 +60,7 @@ export class ReviewsService {
   entityUrl: string = 'api/admin/reviews'
   fullUrl: string = `${this.baseUrl}${this.entityUrl}`;
 
-  headers: HttpHeaders = new HttpHeaders({ 'Authorization': 'asff' })
+  headers: {headers: HttpHeaders} = {headers: new HttpHeaders({ 'Authorization': 'asff' })}
   review: IReview[] = [];
 
   private _collectForm(item: IReview, files?: File[]): FormData {
@@ -93,7 +93,7 @@ export class ReviewsService {
 
   create(item: IReview, files?: File[]): Observable<IReview> {
     let formData = this._collectForm(item, files);
-    return this.http.post<IReview>(`${this.fullUrl}`, formData, { headers: this.headers }).pipe(
+    return this.http.post<IReview>(`${this.fullUrl}`, formData, this.headers).pipe(
       delay(300),
       retry(2)
     )
@@ -101,14 +101,14 @@ export class ReviewsService {
 
   edit(item: IReview, files?: File[]): Observable<IReview> {
     let formData = this._collectForm(item, files);
-    return this.http.patch<IReview>(`${this.fullUrl}`, formData, { headers: this.headers }).pipe(
+    return this.http.patch<IReview>(`${this.fullUrl}`, formData, this.headers).pipe(
       delay(300),
       retry(2)
     )
   }
 
   delete(id: number) {
-    return this.http.delete<IReview>(`${this.fullUrl}?id=${id}`, { headers: this.headers }).pipe(
+    return this.http.delete<IReview>(`${this.fullUrl}?id=${id}`, this.headers).pipe(
       delay(300),
       retry(2)
     )

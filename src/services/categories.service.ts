@@ -224,7 +224,7 @@ export class CategoriesService {
   entityUrl: string = 'api/admin/categories'
   fullUrl: string = `${this.baseUrl}${this.entityUrl}`
 
-  headers: HttpHeaders = new HttpHeaders({ 'Authorization': 'asff' })
+  headers: {headers: HttpHeaders} = {headers: new HttpHeaders({ 'Authorization': 'asff' })}
   categories: ICategory[] = [];
 
   private _collectForm(item: ICategory, file?: File): FormData {
@@ -265,7 +265,7 @@ export class CategoriesService {
 
   create(item: ICategory, file?: File): Observable<ICategory> {
     let formData = this._collectForm(item, file);
-    return this.http.post<ICategory>(`${this.fullUrl}`, formData, { headers: this.headers }).pipe(
+    return this.http.post<ICategory>(`${this.fullUrl}`, formData, this.headers).pipe(
       delay(300),
       retry(2)
     )
@@ -273,14 +273,14 @@ export class CategoriesService {
 
   edit(item: ICategory, file?: File): Observable<ICategory> {
     let formData = this._collectForm(item, file);
-    return this.http.patch<ICategory>(`${this.fullUrl}`, formData, { headers: this.headers }).pipe(
+    return this.http.patch<ICategory>(`${this.fullUrl}`, formData, this.headers).pipe(
       delay(300),
       retry(2)
     )
   }
 
   delete(id: number) {
-    return this.http.delete<ICategory>(`${this.fullUrl}?id=${id}`, { headers: this.headers }).pipe(
+    return this.http.delete<ICategory>(`${this.fullUrl}?id=${id}`, this.headers).pipe(
       delay(300),
       retry(2)
     )

@@ -4,13 +4,13 @@ import { ICategory } from '../../models/category.model';
 import { CategoriesListComponent } from '../../widgets/categories-list/categories-list.component';
 import { NavigationStart, Router } from '@angular/router';
 import { CategoriesService } from '../../services/categories.service';
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { CatalogListComponent } from '../../widgets/catalog-list/catalog-list.component';
 
 @Component({
   selector: 'app-catalog-page',
   standalone: true,
-  imports: [BreadcumbsComponent, CategoriesListComponent, CatalogListComponent, NgIf],
+  imports: [BreadcumbsComponent, CategoriesListComponent, CatalogListComponent, NgIf, NgClass],
   templateUrl: './catalog-page.component.html',
   styleUrl: './catalog-page.component.scss'
 })
@@ -20,6 +20,12 @@ export class CatalogPageComponent implements OnInit {
   baseNames: string[] = ['Главная', 'Каталог']
   names: string[] = this.baseNames
   isCategories: boolean = true;
+  isSmall: boolean = JSON.parse(localStorage.getItem('isSmall') ?? "false")
+
+  changeSmall() {
+    this.isSmall = !this.isSmall
+    localStorage.setItem('isSmall', JSON.stringify(this.isSmall))
+  }
 
   changeBreadcumbs(id: string) {
     const res: string[] = [];

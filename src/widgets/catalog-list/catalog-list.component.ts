@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, input } from '@angular/core';
 import { ProductsService } from '../../services/product.service';
 import { IProduct } from '../../models/product.model';
 import { CatalogItemCardComponent } from '../../shared/ui/catalog-item-card/catalog-item-card.component';
@@ -14,17 +14,14 @@ import { NgClass, NgFor, NgIf } from '@angular/common';
 })
 export class CatalogListComponent implements OnInit {
   constructor(public productsService: ProductsService) {}
+  @Input() isSmall: boolean = JSON.parse(localStorage.getItem('isSmall') ?? "false")
   products: IProduct[] = []
-  isSmall: boolean = JSON.parse(localStorage.getItem('isSmall') ?? "true")
   isLoad: boolean = false
 
   ngOnInit(): void {
-    localStorage.setItem('isSmall', JSON.stringify(this.isSmall))
-
     this.isLoad = true;
     setTimeout(() => {
       this.products = this.productsService.getAll()
-      console.log(this.products)
       this.isLoad = false
     }, 500)
   }

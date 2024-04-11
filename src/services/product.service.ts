@@ -11,7 +11,7 @@ const data: IProduct[] = [
     category: 25,
     title: 'СТОЛ «ТРАПЕЦИЯ» РЕГУЛИРУЕМЫЙ, ГР. 0-3',
     price: 2499,
-    cardDescription: '',
+    cardDescription: 'ширини: 1000\nвысота: 800\nглубина: 900',
     descriptionItems: null,
     imagePath: ['assets/img/category/product1.jpg']
   },
@@ -20,7 +20,7 @@ const data: IProduct[] = [
     category: 25,
     title: 'СТОЛ «ТРАПЕЦИЯ» РЕГУЛИРУЕМЫЙ, ГР. 0-3',
     price: 2499,
-    cardDescription: '',
+    cardDescription: 'ширини: 1000\nвысота: 800\nглубина: 900',
     descriptionItems: null,
     imagePath: ['assets/img/category/product1.jpg']
   },
@@ -29,7 +29,7 @@ const data: IProduct[] = [
     category: 25,
     title: 'СТОЛ «ТРАПЕЦИЯ» РЕГУЛИРУЕМЫЙ, ГР. 0-3',
     price: 2499,
-    cardDescription: '',
+    cardDescription: 'ширини: 1000\nвысота: 800\nглубина: 900',
     descriptionItems: null,
     imagePath: ['assets/img/category/product1.jpg']
   },
@@ -38,7 +38,7 @@ const data: IProduct[] = [
     category: 25,
     title: 'СТОЛ «ТРАПЕЦИЯ» РЕГУЛИРУЕМЫЙ, ГР. 0-3',
     price: 2499,
-    cardDescription: '',
+    cardDescription: 'ширини: 1000\nвысота: 800\nглубина: 900',
     descriptionItems: null,
     imagePath: ['assets/img/category/product1.jpg']
   },
@@ -47,7 +47,7 @@ const data: IProduct[] = [
     category: 25,
     title: 'СТОЛ «ТРАПЕЦИЯ» РЕГУЛИРУЕМЫЙ, ГР. 0-3',
     price: 2499,
-    cardDescription: '',
+    cardDescription: 'ширини: 1000\nвысота: 800\nглубина: 900',
     descriptionItems: null,
     imagePath: ['assets/img/category/product1.jpg']
   },
@@ -56,7 +56,7 @@ const data: IProduct[] = [
     category: 25,
     title: 'СТОЛ «ТРАПЕЦИЯ» РЕГУЛИРУЕМЫЙ, ГР. 0-3',
     price: 2499,
-    cardDescription: '',
+    cardDescription: 'ширини: 1000\nвысота: 800\nглубина: 900',
     descriptionItems: null,
     imagePath: ['assets/img/category/product1.jpg']
   },
@@ -71,7 +71,7 @@ export class ProductsService {
   entityUrl: string = 'api/admin/products'
   fullUrl: string = `${this.baseUrl}${this.entityUrl}`;
   
-  headers: HttpHeaders = new HttpHeaders({ 'Authorization': 'asff' })
+  headers: {headers: HttpHeaders} = {headers: new HttpHeaders({ 'Authorization': 'asff' })}
   products: IProduct[] = [];
 
   private _collectForm(item: IProduct, file?: File): FormData {
@@ -107,7 +107,7 @@ export class ProductsService {
 
   create(item: IProduct, file?: File): Observable<IProduct> {
     let formData = this._collectForm(item, file);
-    return this.http.post<IProduct>(`${this.fullUrl}`, formData, { headers: this.headers }).pipe(
+    return this.http.post<IProduct>(`${this.fullUrl}`, formData, this.headers).pipe(
       delay(300),
       retry(2)
     )
@@ -115,14 +115,14 @@ export class ProductsService {
 
   edit(item: IProduct, file?: File): Observable<IProduct> {
     let formData = this._collectForm(item, file);
-    return this.http.patch<IProduct>(`${this.fullUrl}`, formData, { headers: this.headers }).pipe(
+    return this.http.patch<IProduct>(`${this.fullUrl}`, formData, this.headers).pipe(
       delay(300),
       retry(2)
     )
   }
 
   delete(id: number) {
-    return this.http.delete<IProduct>(`${this.fullUrl}?id=${id}`, { headers: this.headers }).pipe(
+    return this.http.delete<IProduct>(`${this.fullUrl}?id=${id}`, this.headers).pipe(
       delay(300),
       retry(2)
     )

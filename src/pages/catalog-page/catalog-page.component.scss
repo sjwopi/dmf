@@ -1,0 +1,22 @@
+.catalogPage {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__btn {
+    height: 30px;
+    width: 30px;
+    background: url(/assets/img/table.svg) center/contain no-repeat;
+    transition: all .2s ease-in-out;
+
+    &.small {
+      background-image: url(/assets/img/hamb.svg);
+    }
+  }
+}

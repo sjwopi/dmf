@@ -1,3 +1,26 @@
-<article class="catalogItem">
-  <p>{{product.title}}</p>
+<article class="catalogItem" *ngIf="!isSmall">
+  <img *ngIf="product.imagePath" class="catalogItem__img" src="{{product.imagePath[0]}}">
+  <img *ngIf="!product.imagePath" class="catalogItem__img" src="#">
+
+  <div class="catalogItem__description">
+    <h4 class="catalogItem__title">{{product.title}}</h4>
+    <div>
+      <p *ngFor="let p of product.cardDescription.split('\n')">{{p}}</p>
+    </div>
+    <h3 class="catalogItem__price">{{product.price}} ₽</h3>
+  </div>
+
+  <button class="catalogItem__btn">В корзину</button>
+</article>
+
+<article class="catalogItemSmall" *ngIf="isSmall">
+  <img *ngIf="product.imagePath" class="catalogItemSmall__img" src="{{product.imagePath[0]}}">
+  <img *ngIf="!product.imagePath" class="catalogItemSmall__img" src="#">
+
+  <h4 class="catalogItemSmall__title">{{product.title}}</h4>
+
+  <div class="catalogItemSmall__container">
+    <h3 class="catalogItemSmall__price">{{product.price}} ₽</h3>
+    <button class="catalogItemSmall__btn">В корзину</button>
+  </div>
 </article>

@@ -4,6 +4,15 @@
   <h1 class="title main">{{names[names.length - 1]}}</h1>
 
   <app-categories-list *ngIf="isCategories"></app-categories-list>
-  <app-catalog-list *ngIf="!isCategories"></app-catalog-list>
+
+  <div class="catalogPage" *ngIf="!isCategories">
+    <div class="catalogPage__header">
+      <div class="catalogPage__sort">
+
+      </div>
+      <button (click)="changeSmall()" class="catalogPage__btn" [ngClass]="{'small': isSmall}"></button>
+    </div>
+    <app-catalog-list [isSmall]="isSmall"></app-catalog-list>
+  </div>
 
 </section>
