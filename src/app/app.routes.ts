@@ -36,7 +36,7 @@ export const routes: Routes = [
     component: PolicyComponent
   },*/
 
-  {
+/*   {
     path: 'categories',
     component: CategoriesPageComponent,
 
@@ -44,14 +44,14 @@ export const routes: Routes = [
       path: '**',
       component: CategoriesPageComponent
     }]
-  },
+  }, */
   {
     path: 'catalog',
     component: CatalogPageComponent,
 
     children: [{
-      path: ':id',
-      component: CatalogItemPageComponent
+      path: '**',
+      component: CatalogPageComponent
     }]
   },
   {

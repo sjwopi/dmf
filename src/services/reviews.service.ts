@@ -57,7 +57,7 @@ const data: IReview[] = [
 export class ReviewsService {
   constructor(private http: HttpClient, private router: Router) { }
   baseUrl: string = BASE_URL;
-  entityUrl: string = 'api/admin/review'
+  entityUrl: string = 'api/admin/reviews'
   fullUrl: string = `${this.baseUrl}${this.entityUrl}`;
 
   headers: HttpHeaders = new HttpHeaders({ 'Authorization': 'asff' })

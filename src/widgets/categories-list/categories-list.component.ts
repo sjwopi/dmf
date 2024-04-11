@@ -19,9 +19,16 @@ export class CategoriesListComponent implements OnInit {
   isLoad: boolean = false
 
   changeUrl(event?: any) {
-    if (event.url.split('/')[1] !== 'categories') return
+    if (event.url.split('/')[1] !== 'catalog') {
+      this.isLoad = true;
+      setTimeout(() => {
+        this.categories = this.categoriesService.getAll()
+        this.isLoad = false
+      }, 500)
+      return
+    }
 
-    const urls = event.url.split('categories')[1]?.split('/')
+    const urls = event.url.split('catalog')[1]?.split('/')
     const id = urls[urls.length - 1]
     if (id) {
       this.isLoad = true;

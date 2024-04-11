@@ -1,0 +1,48 @@
+.categoriesList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 80px;
+
+  &__item {
+    width: 100%;
+
+    .small {
+      width: calc(25% - 15px);
+    }
+  }
+
+  &__skeleton {
+    width: 100%;
+    aspect-ratio: 4 / 1;
+
+    &.small {
+      width: calc(25% - 15px);
+      aspect-ratio: 4 / 1;
+    }
+  }
+}
+
+
+@media screen and (max-width: 780px) {
+  .categoriesList {
+    &__item {
+      width: 100%;
+  
+      .small {
+        width: calc(25% - 15px);
+      }
+    }
+  
+    &__skeleton {
+      width: 100%;
+      aspect-ratio: 2 / 1;
+  
+      &.small {
+        width: calc(50% - 15px);
+        aspect-ratio: 2 / 1;
+      }
+    }
+  }
+}

@@ -1,7 +1,9 @@
 <section class="content">
   <app-breadcumbs [names]="names"></app-breadcumbs>
 
-  <h1 class="title main">Каталог</h1>
+  <h1 class="title main">{{names[names.length - 1]}}</h1>
 
-<!--   <app-catalog-categories-list [categories]="categories"></app-catalog-categories-list> -->
+  <app-categories-list *ngIf="isCategories"></app-categories-list>
+  <app-catalog-list *ngIf="!isCategories"></app-catalog-list>
+
 </section>

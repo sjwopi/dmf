@@ -23,14 +23,13 @@ export class BreadcumbsComponent implements OnInit {
 
   changeUrl() {
     setTimeout(() => {
-      console.log(this.names)
       this.breadcrumbs = []
       const acc: string[] = []
       this.router.url.split('/').forEach((item, i) => {
         acc.push(item)
-        console.log(acc)
         this.breadcrumbs.push({ name: this.names[i], link: acc.join('/') })
       })
+      this.breadcrumbs = [...this.breadcrumbs]
     }, 100)
   }
 

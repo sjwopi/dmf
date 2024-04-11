@@ -1,0 +1,8 @@
+.catalogItem {
+  display: flex;
+  flex-direction: column;
+
+  &__img {
+    width: 100%;
+  }
+}

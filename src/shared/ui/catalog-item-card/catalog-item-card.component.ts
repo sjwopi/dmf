@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IProduct } from '../../../models/product.model';
 
 @Component({
   selector: 'app-catalog-item-card',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
   templateUrl: './catalog-item-card.component.html',
   styleUrl: './catalog-item-card.component.scss'
 })
-export class CatalogItemCardComponent {
+export class CatalogItemCardComponent implements OnInit{
+  @Input() product!: IProduct;
+
+  ngOnInit(): void {
+    console.log(this.product)
+  }
 }

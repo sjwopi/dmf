@@ -1,0 +1,14 @@
+<section class="content">
+  <div class="catalogList" *ngIf="!isLoad">
+    <app-catalog-item-card *ngFor="let product of products" [product]="product"></app-catalog-item-card>
+  </div>
+
+  <div class="catalogList" *ngIf="isLoad">
+    <app-skeleton class="catalogList__skeleton" [ngClass]="{'small': isSmall}"></app-skeleton>
+    <app-skeleton class="catalogList__skeleton" [ngClass]="{'small': isSmall}"></app-skeleton>
+    <app-skeleton class="catalogList__skeleton" [ngClass]="{'small': isSmall}"></app-skeleton>
+    <app-skeleton class="catalogList__skeleton" [ngClass]="{'small': isSmall}"></app-skeleton>
+    <app-skeleton class="catalogList__skeleton" [ngClass]="{'small': isSmall}"></app-skeleton>
+    <app-skeleton class="catalogList__skeleton" [ngClass]="{'small': isSmall}"></app-skeleton>
+  </div>
+</section>
