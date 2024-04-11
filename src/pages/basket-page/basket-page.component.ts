@@ -6,11 +6,12 @@ import { ProductsService } from '../../services/product.service';
 import { InputComponent } from '../../shared/ui/input/input.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ReCaptchaV3Service } from 'ng-recaptcha';
+import { ButtonComponent } from '../../shared/ui/button/button.component';
 
 @Component({
   selector: 'app-basket-page',
   standalone: true,
-  imports: [BreadcumbsComponent, CatalogItemCardComponent, InputComponent, ReactiveFormsModule],
+  imports: [BreadcumbsComponent, CatalogItemCardComponent, InputComponent, ReactiveFormsModule, ButtonComponent],
   templateUrl: './basket-page.component.html',
   styleUrl: './basket-page.component.scss'
 })
